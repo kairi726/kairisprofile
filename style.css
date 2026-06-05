@@ -398,6 +398,20 @@ header .subtitle {
     margin-bottom: 40px;
 }
 
+/* ----------------------------------
+   クリックで開ける画像用のスタイル
+   ---------------------------------- */
+.media-wrapper a {
+    display: inline-block;
+}
+.media-wrapper a img {
+    cursor: zoom-in;
+    transition: transform 0.2s ease;
+}
+.media-wrapper a img:hover {
+    transform: scale(1.02);
+}
+
 /* 線の上に乗るピンクの「●」 */
 .timeline-item::after {
     content: '';
@@ -431,4 +445,85 @@ header .subtitle {
     font-size: 1rem;
     line-height: 1.6;
     opacity: 0.8;
+}
+
+
+/* ==========================================
+   5.8 AWARDS（受賞歴セクションの調整）
+   ========================================== */
+
+.award-block {
+    margin-top: 40px;
+}
+
+/* 受賞タイトル部分 */
+.award-header {
+    margin-bottom: 15px;
+}
+
+.award-date {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--accent-pink);
+    display: block;
+    letter-spacing: 0.05em;
+}
+
+.award-header h3 {
+    font-size: 1.6rem;
+    color: var(--text-white);
+    margin-top: 5px;
+}
+
+.award-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    opacity: 0.9;
+    margin-bottom: 35px;
+}
+
+/* 🖼 メディアイメージの横並び設定 */
+.award-media-container {
+    display: flex;
+    gap: 30px; /* ポスターと動画のスキマ */
+}
+
+.award-media-item {
+    flex: 1; /* 1:1の同じ幅で並べる */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.award-media-item h4 {
+    font-size: 1rem;
+    color: var(--accent-pink);
+    font-weight: normal;
+    letter-spacing: 0.05em;
+}
+
+/* メディアの入れ物（サイズを整えて角を丸く） */
+.media-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* 💡 4:3の綺麗な比率で四角を統一 */
+    background-color: rgba(255, 255, 255, 0.05); /* 読み込み前の仮背景 */
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(245, 194, 193, 0.2);
+}
+
+/* 画像と動画を入れ物にフィットさせる */
+.media-wrapper img,
+.media-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 👈 枠に綺麗に収める */
+}
+
+/* スマホで見たら縦並びにする */
+@media (max-width: 768px) {
+    .award-media-container {
+        flex-direction: column;
+        gap: 40px;
+    }
 }
