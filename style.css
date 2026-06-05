@@ -219,6 +219,26 @@ header .subtitle {
     opacity: 0.7;
 }
 
+/* ==========================================
+   5.5 SLOGAN（デスクトップ向け）
+   ========================================== */
+
+/* デスクトップではさらに大きく太くして目立たせる */
+.slogan-container {
+    text-align: center;
+    margin-top: 70px;
+    padding: 0 20px;
+}
+
+.slogan-catch {
+    font-size: 4.0rem;      /* デスクトップで大きめに表示 */
+    font-weight: 900;      /* さらに太く */
+    color: var(--accent-pink);
+    line-height: 1.2;
+    margin-bottom: 30px;
+    letter-spacing: 0.03em;
+}
+
 
 /* ==========================================
    6. レスポンシブ対応（スマホで見たら縦並びにする）
@@ -235,5 +255,34 @@ header .subtitle {
     }
     .profile-sns {
         justify-content: center; /* スマホ時はSNSリンクも中央寄せに */
+    }
+
+    /* ==========================================
+   5.5 SLOGAN（スローガンセクションの調整）
+   ========================================== */
+
+    /* スローガン全体を中央寄せにして見やすくする */
+    .slogan-container {
+        text-align: center;
+        margin-top: 50px;
+        padding: 0 20px;
+    }
+
+    /* 💡 ここでキャッチコピーを【大きく】【太く】します！ */
+    .slogan-catch {
+        font-size: 3.0rem;       /* 💡 文字の大きさをガツンとアップ */
+        font-weight: bold;       /* 💡 文字を太く */
+        color: var(--accent-pink); /* 💡 くすみピンクにして目立たせる */
+        line-height: 1.5;
+        margin-bottom: 30px;     /* 下の解説文章とのスキマ */
+        letter-spacing: 0.05em;   /* 文字の間隔を少し広げておしゃれに */
+    }
+
+    /* スローガンの補足文章（下の文字） */
+    .slogan-text {
+        font-size: 1.1rem;
+        line-height: 2;          /* 行間をゆったりさせて読みやすく */
+        color: var(--text-white);
+        opacity: 0.85;           /* 少しだけ透明度を入れてキャッチコピーを引き立てる */
     }
 }
