@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Downloads/プロフィール"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "kairisprofile"
+	}
+}
