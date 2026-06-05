@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Downloads/ぬいぐるみ"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "kairisprofile"
+	}
+}
