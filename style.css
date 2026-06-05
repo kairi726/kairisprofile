@@ -4,8 +4,13 @@
 :root {
     --bg-dark-green: #0B2F23; /* 深い緑 */
     --accent-pink: #F5C2C1;   /* くすみピンク */
-    --text-white: #f8f9fa;     /* 少し柔らかい白 */
-    --text-dark: #1a1a1a;      /* 深いグレー（黒の代わり） */
+    --text-white: #f8f9fa;     /* 柔らかい白 */
+    --text-dark: #1a1a1a;      /* 深いグレー */
+}
+
+/* スクロールをなめらかにする魔法の1行 */
+html {
+    scroll-behavior: smooth;
 }
 
 * {
@@ -18,14 +23,14 @@ body {
     font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
     background-color: var(--bg-dark-green);
     color: var(--text-white);
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
 /* ==========================================
    2. 各セクションのスタイリング
    ========================================== */
 
-/* メインビジュアル */
+/* メインビジュアル（一番上の画面） */
 header {
     height: 100vh; /* 画面いっぱいの高さ */
     display: flex;
@@ -37,47 +42,77 @@ header {
 }
 
 header h1 {
-    font-size: 5rem; /* かなり大きな文字 */
+    font-size: 5rem;
     font-weight: 900;
     color: var(--accent-pink);
     letter-spacing: 0.05em;
+    margin-bottom: 10px;
 }
 
-/* 目次セクション（ピンク背景に変えるエリア） */
+header .subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+    color: var(--text-white);
+    opacity: 0.8;
+}
+
+/* 目次セクション（ピンク背景） */
 #table-of-contents {
     background-color: var(--accent-pink);
     color: var(--text-dark);
-    padding: 60px 20px;
+    padding: 80px 20px;
     text-align: center;
 }
 
 #table-of-contents h2 {
     font-size: 2rem;
-    margin-bottom: 30px;
-}
-
-#table-of-contents ul {
-    list-style: none; /* ドット（・）を消す */
-}
-
-#table-of-contents li {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin: 15px 0;
+    margin-bottom: 40px;
     letter-spacing: 0.1em;
 }
 
-/* その他のセクション（INTRODUCTION、SLOGANなど） */
-section {
-    padding: 80px 20px;
-    max-width: 800px; /* 読みやすい横幅に制限 */
-    margin: 0 auto;   /* 中央寄せ */
+#table-of-contents ul {
+    list-style: none; /* ドットを消す */
 }
 
-section h2 {
+#table-of-contents li {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 20px 0;
+    letter-spacing: 0.1em;
+}
+
+/* 目次のリンク設定 */
+#table-of-contents a {
+    color: var(--text-dark);
+    text-decoration: none; /* 下線を消す */
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* マウスを乗せたときの動き */
+#table-of-contents a:hover {
+    opacity: 0.6;
+    transform: scale(1.05); /* ちょっとだけ大きく */
+}
+
+/* コンテンツセクション（INTRODUCTION〜PRODUCTION） */
+.content-section {
+    padding: 100px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 60vh; /* スクロールを確認しやすいように高さを確保 */
+}
+
+.content-section h2 {
     font-size: 2.5rem;
     color: var(--accent-pink);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     border-bottom: 1px solid rgba(245, 194, 193, 0.3); /* 薄いピンクの線 */
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+    letter-spacing: 0.05em;
+}
+
+.content-section p {
+    font-size: 1.1rem;
+    opacity: 0.9;
 }
