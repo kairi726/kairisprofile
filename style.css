@@ -196,6 +196,15 @@ header .subtitle {
     opacity: 0.9;
 }
 
+/* 趣味タイトル */
+.hobby-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--accent-pink);
+    letter-spacing: 0.05em;
+}
+
 /* SNSリンクの並び（点・を消して綺麗に横並び！） */
 .profile-sns {
     list-style: none;   /* 箇条書きのドットを消す */
@@ -285,4 +294,141 @@ header .subtitle {
         color: var(--text-white);
         opacity: 0.85;           /* 少しだけ透明度を入れてキャッチコピーを引き立てる */
     }
+}
+
+/* ==========================================
+   5.6 HOBBIES（趣味セクションの調整）
+   ========================================== */
+
+.hobby-block {
+    margin-bottom: 60px; /* ブロックごとの隙間 */
+}
+
+.hobby-block h3 {
+    font-size: 1.6rem;
+    color: var(--accent-pink);
+    margin-bottom: 10px;
+}
+
+.hobby-description {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+/* 🖼 写真を並べる魔法（横スクロール対応） */
+.hobby-gallery {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 15px;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ぬいぐるみ用も横スクロールで扱う */
+.gallery-half {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 15px;
+    padding-bottom: 10px;
+}
+
+/* 写真の入れ物（サイズを揃えて角を丸くする） */
+.gallery-item {
+    width: clamp(200px, 18vw, 250px);
+    flex: 0 0 auto;
+    aspect-ratio: 4 / 3; /* 💡 写真をすべて4:3の比率に統一してスッキリ見せる */
+    overflow: hidden;
+    border-radius: 8px;  /* 角を少し丸くして柔らかい印象に */
+    border: 1px solid rgba(245, 194, 193, 0.2);
+    scroll-snap-align: start;
+}
+
+/* 画像を枠いっぱいに綺麗に収める */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* 💡 画像が歪まないように自動トリミング */
+    transition: transform 0.3s ease;
+}
+
+/* 🐭 写真にマウスを乗せると、ふんわり拡大する遊び心 */
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+    /* スマホで見たら1列にする */
+    @media (max-width: 600px) {
+        .hobby-gallery {
+            grid-template-columns: 1fr;
+        }
+}
+
+
+/* ==========================================
+   5.7 BACKGROUND（学歴・経歴の調整）
+   ========================================== */
+
+/* タイムライン全体の枠組み */
+.timeline {
+    position: relative;
+    max-width: 600px;
+    margin: 40px auto 0;
+    padding-left: 30px; /* 左側に線が通るスペースを作る */
+}
+
+/* 縦に通る一本の線 */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 2px;
+    height: 100%;
+    background-color: var(--accent-pink);
+    opacity: 0.3; /* 線を少し薄くして上品に */
+}
+
+/* 各イベントの塊 */
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+/* 線の上に乗るピンクの「●」 */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: -29px; /* 縦線の真上に配置 */
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--accent-pink);
+    box-shadow: 0 0 0 4px var(--bg-dark-green); /* 背景色と同じ枠線をつけて線をくり抜く効果 */
+}
+
+/* 日付 */
+.timeline-date {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--accent-pink);
+    margin-bottom: 5px;
+    letter-spacing: 0.05em;
+}
+
+/* 学歴のタイトルと説明文 */
+.timeline-content h3 {
+    font-size: 1.3rem;
+    color: var(--text-white);
+    margin-bottom: 5px;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.8;
 }
