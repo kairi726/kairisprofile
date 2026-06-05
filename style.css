@@ -1,0 +1,529 @@
+/* ==========================================
+   1. 全体の設定（リセットと共通変数）
+   ========================================== */
+:root {
+    --bg-dark-green: #0B2F23; /* 深い緑 */
+    --accent-pink: #F5C2C1;   /* くすみピンク */
+    --text-white: #f8f9fa;     /* 柔らかい白 */
+    --text-dark: #1a1a1a;      /* 深いグレー */
+}
+
+/* スクロールをなめらかにする魔法の1行 */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+    background-color: var(--bg-dark-green);
+    color: var(--text-white);
+    line-height: 1.8;
+}
+
+
+/* ==========================================
+   2. 共通セクションスタイル（INTRODUCTION〜PRODUCTION共通）
+   ========================================== */
+.content-section {
+    padding: 100px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 60vh; /* スクロール確認用の仮の高さ */
+}
+
+.content-section h2 {
+    font-size: 2.5rem;
+    color: var(--accent-pink);
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(245, 194, 193, 0.3); /* 薄いピンクの線 */
+    padding-bottom: 15px;
+    letter-spacing: 0.05em;
+}
+
+.content-section p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+
+/* ==========================================
+   3. メインビジュアル（一番上の画面）
+   ========================================== */
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--accent-pink);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+}
+
+header .subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+    color: var(--text-white);
+    opacity: 0.8;
+}
+
+
+/* ==========================================
+   4. 目次セクション（ピンク背景）
+   ========================================== */
+#table-of-contents {
+    background-color: var(--accent-pink);
+    color: var(--text-dark);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+#table-of-contents h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    letter-spacing: 0.1em;
+}
+
+#table-of-contents ul {
+    list-style: none;
+}
+
+#table-of-contents li {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 20px 0;
+    letter-spacing: 0.1em;
+}
+
+#table-of-contents a {
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+#table-of-contents a:hover {
+    opacity: 0.6;
+    transform: scale(1.05);
+}
+
+
+/* ==========================================
+   5. INTRODUCTION（自己紹介セクションの詳細）
+   ========================================== */
+
+/* 写真とテキストを横並びにする */
+.intro-container {
+    display: flex;
+    gap: 50px;          /* 横の余白を少し広げてゆとりを持たせる */
+    align-items: center;
+    margin-top: 40px;
+}
+
+/* 写真の「入れ物」のサイズを固定して丸く切り取る */
+.intro-image-circle {
+    width: 260px;       /* バランスを見て少しだけサイズアップ */
+    height: 260px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent-pink); /* ピンクの枠線 */
+    flex: 0 0 auto;     /* 横並びの中で画像が潰れるのを防ぐ */
+}
+
+/* 画像そのものを入れ物にフィットさせる */
+.intro-image-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 名前をHTMLに合わせる */
+.intro-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.profile-header {
+    margin-bottom: 10px;
+}
+
+/* 英語名（細く、字間を広くしておしゃれに） */
+.profile-header .en-name {
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--accent-pink);
+    display: block;
+    text-transform: uppercase; /* 自動で大文字にする魔法 */
+}
+
+/* 日本語名（ドカンと大きく、力強く） */
+.profile-header .ja-name {
+    font-size: 2.8rem;  /* サイズアップしてメリハリを強化 */
+    font-weight: bold;
+    color: var(--text-white);
+    margin: 5px 0;
+    letter-spacing: 0.05em;
+}
+
+/* 大学名・肩書き */
+.profile-header .univercity {
+    font-size: 1.1rem;
+    opacity: 0.7;
+    letter-spacing: 0.05em;
+}
+
+/* 自己紹介本文の調整 */
+.profile-body p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-white);
+    opacity: 0.9;
+}
+
+/* 趣味タイトル */
+.hobby-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--accent-pink);
+    letter-spacing: 0.05em;
+}
+
+/* SNSリンクの並び（点・を消して綺麗に横並び！） */
+.profile-sns {
+    list-style: none;   /* 箇条書きのドットを消す */
+    display: flex;      /* 横並びにする */
+    gap: 25px;          /* リンク同士の間隔 */
+    margin-top: 15px;
+    padding-left: 0;    /* 左側の余計な余白をリセット */
+}
+
+.profile-sns a {
+    color: var(--accent-pink);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s;
+}
+
+.profile-sns a:hover {
+    border-bottom: 1px solid var(--accent-pink); /* ホバー時に下線を引く */
+    opacity: 0.7;
+}
+
+/* ==========================================
+   5.5 SLOGAN（デスクトップ向け）
+   ========================================== */
+
+/* デスクトップではさらに大きく太くして目立たせる */
+.slogan-container {
+    text-align: center;
+    margin-top: 70px;
+    padding: 0 20px;
+}
+
+.slogan-catch {
+    font-size: 4.0rem;      /* デスクトップで大きめに表示 */
+    font-weight: 900;      /* さらに太く */
+    color: var(--accent-pink);
+    line-height: 1.2;
+    margin-bottom: 30px;
+    letter-spacing: 0.03em;
+}
+
+
+/* ==========================================
+   6. レスポンシブ対応（スマホで見たら縦並びにする）
+   ========================================== */
+@media (max-width: 768px) {
+    .intro-container {
+        flex-direction: column; /* 縦並びにする */
+        text-align: center;
+        gap: 30px;
+    }
+    .intro-image-circle {
+        width: 220px;
+        height: 220px;
+    }
+    .profile-sns {
+        justify-content: center; /* スマホ時はSNSリンクも中央寄せに */
+    }
+
+    /* ==========================================
+   5.5 SLOGAN（スローガンセクションの調整）
+   ========================================== */
+
+    /* スローガン全体を中央寄せにして見やすくする */
+    .slogan-container {
+        text-align: center;
+        margin-top: 50px;
+        padding: 0 20px;
+    }
+
+    /* 💡 ここでキャッチコピーを【大きく】【太く】します！ */
+    .slogan-catch {
+        font-size: 3.0rem;       /* 💡 文字の大きさをガツンとアップ */
+        font-weight: bold;       /* 💡 文字を太く */
+        color: var(--accent-pink); /* 💡 くすみピンクにして目立たせる */
+        line-height: 1.5;
+        margin-bottom: 30px;     /* 下の解説文章とのスキマ */
+        letter-spacing: 0.05em;   /* 文字の間隔を少し広げておしゃれに */
+    }
+
+    /* スローガンの補足文章（下の文字） */
+    .slogan-text {
+        font-size: 1.1rem;
+        line-height: 2;          /* 行間をゆったりさせて読みやすく */
+        color: var(--text-white);
+        opacity: 0.85;           /* 少しだけ透明度を入れてキャッチコピーを引き立てる */
+    }
+}
+
+/* ==========================================
+   5.6 HOBBIES（趣味セクションの調整）
+   ========================================== */
+
+.hobby-block {
+    margin-bottom: 60px; /* ブロックごとの隙間 */
+}
+
+.hobby-block h3 {
+    font-size: 1.6rem;
+    color: var(--accent-pink);
+    margin-bottom: 10px;
+}
+
+.hobby-description {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+/* 🖼 写真を並べる魔法（横スクロール対応） */
+.hobby-gallery {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 15px;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ぬいぐるみ用も横スクロールで扱う */
+.gallery-half {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 15px;
+    padding-bottom: 10px;
+}
+
+/* 写真の入れ物（サイズを揃えて角を丸くする） */
+.gallery-item {
+    width: clamp(200px, 18vw, 250px);
+    flex: 0 0 auto;
+    aspect-ratio: 4 / 3; /* 💡 写真をすべて4:3の比率に統一してスッキリ見せる */
+    overflow: hidden;
+    border-radius: 8px;  /* 角を少し丸くして柔らかい印象に */
+    border: 1px solid rgba(245, 194, 193, 0.2);
+    scroll-snap-align: start;
+}
+
+/* 画像を枠いっぱいに綺麗に収める */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* 💡 画像が歪まないように自動トリミング */
+    transition: transform 0.3s ease;
+}
+
+/* 🐭 写真にマウスを乗せると、ふんわり拡大する遊び心 */
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+    /* スマホで見たら1列にする */
+    @media (max-width: 600px) {
+        .hobby-gallery {
+            grid-template-columns: 1fr;
+        }
+}
+
+
+/* ==========================================
+   5.7 BACKGROUND（学歴・経歴の調整）
+   ========================================== */
+
+/* タイムライン全体の枠組み */
+.timeline {
+    position: relative;
+    max-width: 600px;
+    margin: 40px auto 0;
+    padding-left: 30px; /* 左側に線が通るスペースを作る */
+}
+
+/* 縦に通る一本の線 */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 2px;
+    height: 100%;
+    background-color: var(--accent-pink);
+    opacity: 0.3; /* 線を少し薄くして上品に */
+}
+
+/* 各イベントの塊 */
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+/* ----------------------------------
+   クリックで開ける画像用のスタイル
+   ---------------------------------- */
+.media-wrapper a {
+    display: inline-block;
+}
+.media-wrapper a img {
+    cursor: zoom-in;
+    transition: transform 0.2s ease;
+}
+.media-wrapper a img:hover {
+    transform: scale(1.02);
+}
+
+/* 線の上に乗るピンクの「●」 */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: -29px; /* 縦線の真上に配置 */
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--accent-pink);
+    box-shadow: 0 0 0 4px var(--bg-dark-green); /* 背景色と同じ枠線をつけて線をくり抜く効果 */
+}
+
+/* 日付 */
+.timeline-date {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--accent-pink);
+    margin-bottom: 5px;
+    letter-spacing: 0.05em;
+}
+
+/* 学歴のタイトルと説明文 */
+.timeline-content h3 {
+    font-size: 1.3rem;
+    color: var(--text-white);
+    margin-bottom: 5px;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+
+/* ==========================================
+   5.8 AWARDS（受賞歴セクションの調整）
+   ========================================== */
+
+.award-block {
+    margin-top: 40px;
+}
+
+/* 受賞タイトル部分 */
+.award-header {
+    margin-bottom: 15px;
+}
+
+.award-date {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--accent-pink);
+    display: block;
+    letter-spacing: 0.05em;
+}
+
+.award-header h3 {
+    font-size: 1.6rem;
+    color: var(--text-white);
+    margin-top: 5px;
+}
+
+.award-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    opacity: 0.9;
+    margin-bottom: 35px;
+}
+
+/* 🖼 メディアイメージの横並び設定 */
+.award-media-container {
+    display: flex;
+    gap: 30px; /* ポスターと動画のスキマ */
+}
+
+.award-media-item {
+    flex: 1; /* 1:1の同じ幅で並べる */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.award-media-item h4 {
+    font-size: 1rem;
+    color: var(--accent-pink);
+    font-weight: normal;
+    letter-spacing: 0.05em;
+}
+
+/* メディアの入れ物（サイズを整えて角を丸く） */
+.media-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* 💡 4:3の綺麗な比率で四角を統一 */
+    background-color: rgba(255, 255, 255, 0.05); /* 読み込み前の仮背景 */
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(245, 194, 193, 0.2);
+}
+
+/* 画像と動画を入れ物にフィットさせる */
+.media-wrapper img,
+.media-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 👈 枠に綺麗に収める */
+}
+
+/* スマホで見たら縦並びにする */
+@media (max-width: 768px) {
+    .award-media-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
