@@ -1,0 +1,83 @@
+/* ==========================================
+   1. 全体の設定（リセットと共通変数）
+   ========================================== */
+:root {
+    --bg-dark-green: #0B2F23; /* 深い緑 */
+    --accent-pink: #F5C2C1;   /* くすみピンク */
+    --text-white: #f8f9fa;     /* 少し柔らかい白 */
+    --text-dark: #1a1a1a;      /* 深いグレー（黒の代わり） */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+    background-color: var(--bg-dark-green);
+    color: var(--text-white);
+    line-height: 1.6;
+}
+
+/* ==========================================
+   2. 各セクションのスタイリング
+   ========================================== */
+
+/* メインビジュアル */
+header {
+    height: 100vh; /* 画面いっぱいの高さ */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 5rem; /* かなり大きな文字 */
+    font-weight: 900;
+    color: var(--accent-pink);
+    letter-spacing: 0.05em;
+}
+
+/* 目次セクション（ピンク背景に変えるエリア） */
+#table-of-contents {
+    background-color: var(--accent-pink);
+    color: var(--text-dark);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#table-of-contents h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+#table-of-contents ul {
+    list-style: none; /* ドット（・）を消す */
+}
+
+#table-of-contents li {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 15px 0;
+    letter-spacing: 0.1em;
+}
+
+/* その他のセクション（INTRODUCTION、SLOGANなど） */
+section {
+    padding: 80px 20px;
+    max-width: 800px; /* 読みやすい横幅に制限 */
+    margin: 0 auto;   /* 中央寄せ */
+}
+
+section h2 {
+    font-size: 2.5rem;
+    color: var(--accent-pink);
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(245, 194, 193, 0.3); /* 薄いピンクの線 */
+    padding-bottom: 10px;
+}
