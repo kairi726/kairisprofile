@@ -8,6 +8,7 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "kairisprofile"
+		"liveServer.settings.multiRootWorkspaceName": "kairisprofile",
+		"liveServer.settings.port": 5501
 	}
 }
