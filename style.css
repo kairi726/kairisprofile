@@ -527,3 +527,34 @@ header .subtitle {
         gap: 40px;
     }
 }
+
+/* ==========================================
+   5.9 COMING SOON（スキル・作品準備中）
+   ========================================== */
+
+
+.skills-block {
+    margin-top: 40px;
+}
+
+.coming-soon-box {
+    
+
+    padding: 60px 20px;                           /* 上下に広めの余白 */
+    text-align: center;                           /* 文字を真ん中寄せ */
+    margin: 25px 0;
+}
+
+.coming-soon-text {
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    color: var(--accent-pink); /* 文字もしっかりくすみピンクに！ */
+}
+
+.coming-soon-sub {
+    font-size: 1rem;
+    color: var(--text-white);
+    opacity: 0.6;              /* ふんわり白い文字 */
+    margin-top: 12px;
+}
