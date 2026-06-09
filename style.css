@@ -56,6 +56,7 @@ body {
    3. メインビジュアル（一番上の画面）
    ========================================== */
 header {
+    position: relative;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -63,6 +64,33 @@ header {
     align-items: center;
     text-align: center;
     padding: 20px;
+}
+
+.poppo {
+    position: absolute;
+    width: 400px;
+    max-width: 40vw;
+    bottom: 20px;
+    right: 20px;
+    object-fit: contain;
+    border-radius: 18px;
+    
+    animation: poppo-sway 4s ease-in-out infinite;
+}
+
+@keyframes poppo-sway {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(-4px, -6px) rotate(-3deg);
+    }
+    50% {
+        transform: translate(0, -10px) rotate(0deg);
+    }
+    75% {
+        transform: translate(4px, -6px) rotate(3deg);
+    }
 }
 
 header h1 {
@@ -293,6 +321,12 @@ header .subtitle {
         line-height: 2;          /* 行間をゆったりさせて読みやすく */
         color: var(--text-white);
         opacity: 0.85;           /* 少しだけ透明度を入れてキャッチコピーを引き立てる */
+    }
+
+    .poppo {
+        width: 160px;
+        bottom: 20px;
+        right: 20px;
     }
 }
 
@@ -557,4 +591,41 @@ header .subtitle {
     color: var(--text-white);
     opacity: 0.6;              /* ふんわり白い文字 */
     margin-top: 12px;
+}
+
+
+/* ==========================================
+   メインビジュアルの画像ゆらゆらアニメーション（回転版）
+   ========================================== */
+
+/* 1. 画像のサイズ調整と丸み */
+.floating-image {
+    width: 250px;      /* 画像の横幅（お好みで調整してね） */
+    height: 250px;
+    border-radius: 50%; /* まん丸にする */
+    object-fit: cover;  /* 枠内に綺麗に収める */
+    border: 2px solid var(--accent-pink); /* ピンクの可愛い枠線 */
+    margin-bottom: 20px;
+    
+    /* 💡 中心を軸にして回転させる設定 */
+    transform-origin: center center;
+    
+    /* 💡 「yurayura-rotate」アニメーションを4秒かけて永遠に繰り返す（往復） */
+    animation: yurayura-rotate 4s ease-in-out infinite;
+}
+
+/* 2. 中心を軸に、左右にゆっくり揺らす指示 */
+@keyframes yurayura-rotate {
+    0% {
+        transform: rotate(0deg); /* 真ん中 */
+    }
+    25% {
+        transform: rotate(6deg);  /* 少し右に傾く */
+    }
+    75% {
+        transform: rotate(-6deg); /* 反対に、少し左に傾く */
+    }
+    100% {
+        transform: rotate(0deg); /* 真ん中に戻る */
+    }
 }
